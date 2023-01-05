@@ -1,18 +1,16 @@
-import discord, requests
-from discord.ext import commands
+from pyrogram import Client, filters
 
-bot = commands.Bot(command_prefix=".", intents=discord.Intents.all())
+api_id = 1036626
+api_hash = "2f24c61c519fd5cd1da65f87ffa94de6"
+bot_token = "5302017916:AAFumbh6bpnqdKg7h-Osgci2wDJ9kD1umuc"
 
-@bot.event
-async def on_ready():
-    print("bot started")
-
-@bot.command()
-async def send(ctx, *, question):
-    rd = requests.session()
-    r = rd.get(f"https://alsh-bg.ml/api/instagram/x.php?url={question}").json()['data']
-    #user = ctx.author
-    for i in r:
-        await ctx.send(i['url'])
-
-bot.run('MTA1ODMzMjE0ODUwNTAwMjAxNA.GXDNFU.nCh-iJH0XuN4s8rlqu7lW5CbrSjtAxkr55-JYE')
+bot = Client(
+    "my_bot",
+    api_id=api_id, api_hash=api_hash,
+    bot_token=bot_token
+)
+@bot.on_message(filters.command('start'))
+def send(bot, msg):
+  bot.send_message(msg.chat.id, "Message sent with")
+  
+bot.run()
