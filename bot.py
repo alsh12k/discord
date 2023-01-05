@@ -15,4 +15,4 @@ async def send(ctx, *, question):
     for i in r:
         await ctx.send(i['url'])
 
-bot.run('MTA1ODMzMjE0ODUwNTAwMjAxNA.G-f6SO.SB6KbzVpW6SpHSB2ydx1Wcc3Q7Gr13N-2xHq7M')
+bot.run('MTA1ODMzMjE0ODUwNTAwMjAxNA.GXDNFU.nCh-iJH0XuN4s8rlqu7lW5CbrSjtAxkr55-JYE')
